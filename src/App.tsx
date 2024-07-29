@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { styled } from "styled-components";
+import Table from "./components/table";
+import { tableData } from "./config";
+import "./styles/index.css";
+const MainContainer = styled.main`
+  display: flex;
+  margin: 4rem;
+  flex-direction: column;
+`;
+
+const SectionContainer = styled.section`
+  position: relative;
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MainContainer>
+      <SectionContainer>
+        <Table tableData={tableData} />
+      </SectionContainer>
+    </MainContainer>
   );
 }
 

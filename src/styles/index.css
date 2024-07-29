@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fefbff;
+  --foreground: #1b1b1f;
+  
+  --card: #fbf8fd;
+  --card-foreground: #45464f;
+  
+  --shadow-start: 0, 0, 0, 0.08;
+  --shadow-mid: 0, 0, 0, 0.11;
+  --shadow-end: #727272;
+  
+  --primary: #4658ac;
+  --primary-foreground: #fefbff;
+  
+  --secondary: #5a5d72;
+  --secondary-foreground: #fff;
+  
+  --muted: 33, 90%, 92%;
+  --muted-foreground: 22, 6%, 25%;
+  
+  --accent: 33, 90%, 92%;
+  --accent-foreground: 22, 6%, 25%;
+
+  --border: #767680;
+  --input: 20 5.9% 90%;
+  --ring: 20, 20%, 20%;
+  
+  --radius: 0.5rem;
+}
+  
+  body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  font-smooth: never;
+  position: relative;
+  text-rendering: optimizeLegibility;
+  font-family: system-ui, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  width: fit-content;
+}
+
+
+.table-buttons__group {
+  position: sticky;
+  left: 0;
+  top: 0;
+  background-color: var(--card);
+  color: var(--card-foreground);
+  padding: 2rem 1rem;
+  
+  border-radius: 0.75rem;
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  z-index: 200;
+}
+
+.table-add__button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1.25rem;
+  transition: background-color 300ms ease-in, color 300ms ease-in;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  display: inline-flex;
+}
+.table-export__button {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+  padding: 0.5rem 1.25rem;
+  transition: background-color 300ms ease-in, color 300ms ease-in;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  display: inline-flex;
+}
+.table-export__button:hover {
+  background-color: var(--secondary-foreground);
+  color: var(--primary);
+  outline: 1px solid var(--secondary);
+}
+
+.table-export__button > svg, .table-add__button > svg {
+  margin-left: 0.25rem;
+}
+.space-x__sm > button:not(:first-child) {
+  margin-left: 0.5rem;
+}
+.space-x__sm > div {
+  margin-left: 2rem;
+}
+.table-add__button:hover {
+  background-color: var(--primary-foreground);
+  color: var(--primary);
+  outline: 1px solid var(--primary);
+}
+
+
+
+.grid__table {
+  border-radius: 0.25rem;
+
+  margin-top: 4rem;
+  box-shadow: 0 2px 4px rgba(var(--shadow-start)), 0 1px 2px rgba(var(--shadow-mid)),
+    0 0 1px var(--shadow-end);
+  font-size: 1.5rem;
+  padding-right: 4rem;
+}
+
+.column__title {
+  overflow: hidden;
+  text-overflow: hidden;
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font-weight: 500;
+  position: sticky;
+  top: 6.4rem;
+  z-index: 100;
+}
+
+.item {
+  overflow: hidden;
+  text-overflow: hidden;
+  background-color: transparent;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  align-items: center;
+  text-align: center;
+}
+
+.item > input, select {
+  text-align: center;
+  background-color: transparent;
+}
+
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-top: none;
+}
+
+.dropbtn {
+  outline: 1px solid var(--border);
+  color: var(--foreground);
+  padding: 0.5rem 1.25rem;
+  display: inline-block;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  transition: background-color 300ms ease-in, color 300ms ease-in;
+}
+.dropbtn:hover {
+  background-color: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--card);
+  width: 10rem;
+  left: -0.75rem;
+  top: 2.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.11),
+    0 0 1px #727272;
+  z-index: 1;
+  height: 10rem;
+  overflow-y: auto;
+  border-radius: 0.25rem;
+}
+
+/* Links inside the dropdown */
+.dropdown-content label {
+  color: black;
+  padding: 0.5rem 1.25rem;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+.dropdown-content input {
+  margin-right: 0.25rem;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content label:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show the dropdown menu when the button is clicked */
+.dropdown .dropdown-content {
+  display: block;
+}
+
