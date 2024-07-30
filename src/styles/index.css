@@ -32,11 +32,11 @@
   --radius: 0.5rem;
 }
   
-  body {
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
   font-smooth: never;
   position: relative;
   text-rendering: optimizeLegibility;
@@ -96,6 +96,7 @@
 .space-x__sm > div {
   margin-left: 2rem;
 }
+
 }
 .table-add__button:hover {
   background-color: var(--primary-foreground);
@@ -107,7 +108,6 @@
 
 .grid__table {
   border-radius: 0.25rem;
-
   margin-top: 4rem;
   box-shadow: 0 2px 4px rgba(var(--shadow-start)), 0 1px 2px rgba(var(--shadow-mid)),
     0 0 1px var(--shadow-end);

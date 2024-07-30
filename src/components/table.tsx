@@ -70,8 +70,7 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
     setTable((prevTable) => ({
       columns: [...prevTable.columns, newColumn],
       data: prevTable.data.map((row) => {
-        row[newColumn.id] = "";
-        return { ...row };
+        return { ...row, [newColumn.id]: "" };
       }),
     }));
     setVisibleColumns((prev) => [...prev, newColumn.id]);
