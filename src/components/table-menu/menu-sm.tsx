@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Icons } from "../icons";
 import { TableMenuProps } from "./table-menu";
 import Dropdown from "../dropdown";
 import ExportButtons from "../export-buttons";
-
+import useClickOutside from "../../hooks/use-click-outside";
 const MenuSM: React.FC<TableMenuProps> = ({
   tableData,
   visibleColumns,
@@ -14,24 +14,7 @@ const MenuSM: React.FC<TableMenuProps> = ({
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
-      }
-    };
-
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
+  useClickOutside(menuRef, () => setMenuOpen(false));
 
   return (
     <div
@@ -82,3 +65,9 @@ const MenuSM: React.FC<TableMenuProps> = ({
 };
 
 export default MenuSM;
+function UseClickOutside(
+  menuRef: React.RefObject<HTMLDivElement>,
+  handleClickOutside: () => void
+) {
+  throw new Error("Function not implemented.");
+}

@@ -6,113 +6,100 @@ const FullContainer = styled.input`
 `;
 
 interface CellTypeProps {
-  columnId: string;
-  rowId: string;
-  cellData?: any;
-  handleCellChange: (rowId: string, columnId: string, value: any) => void;
+  cellData: any;
+  handleInputChange: (value: any) => void;
 }
 type CellType = {
   [key: string]: React.FC<CellTypeProps>;
 };
 
 const cellTypes: CellType = {
-  string: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  string: ({ cellData, handleInputChange }: CellTypeProps) => (
     <FullContainer
       type="text"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  number: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  number: ({ cellData, handleInputChange }: CellTypeProps) => (
     <FullContainer
       type="number"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  boolean: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  boolean: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="checkbox"
       checked={cellData === true}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.checked)}
+      onChange={(e) => handleInputChange(e.target.checked)}
     />
   ),
-  color: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  color: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="color"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  date: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  date: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="date"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  datetime: ({
-    columnId,
-    rowId,
-    cellData,
-    handleCellChange,
-  }: CellTypeProps) => (
+  datetime: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="datetime-local"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  file: ({ columnId, rowId, handleCellChange }: CellTypeProps) => (
+  file: ({ handleInputChange }: CellTypeProps) => (
     <input
       type="file"
       onChange={(e) =>
-        handleCellChange(
-          rowId,
-          columnId,
-          e.target.files ? e.target.files[0].name : ""
-        )
+        handleInputChange(e.target.files ? e.target.files[0].name : "")
       }
     />
   ),
-  month: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  month: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="month"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  range: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  range: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="range"
       value={cellData}
-      onChange={(e) =>
-        handleCellChange(rowId, columnId, parseInt(e.target.value))
-      }
+      onChange={(e) => handleInputChange(parseInt(e.target.value))}
     />
   ),
-  time: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  time: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="time"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  week: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
+  week: ({ cellData, handleInputChange }: CellTypeProps) => (
     <input
       type="week"
       value={cellData}
-      onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+      onChange={(e) => handleInputChange(e.target.value)}
     />
   ),
-  select: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => {
+  select: ({ cellData, handleInputChange }: CellTypeProps) => {
     const data = cellData || [];
 
     return (
       <select
         value={cellData[0]}
         style={{ width: "100%" }}
-        onChange={(e) => handleCellChange(rowId, columnId, e.target.value)}
+        onChange={(e) => handleInputChange(e.target.value)}
       >
         {data.map((option: any, index: number) => (
           <option key={index + option} value={option}>

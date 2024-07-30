@@ -16,14 +16,14 @@ const Cell: React.FC<CellProps> = ({
 }) => {
   const { id, type, width } = column;
   const CellComponent = cellTypes[type] || cellTypes.string;
+  
+  const handleChange = (value: any) => {
+    handleCellChange(rowId, id, value);
+  };
+
   return (
     <td style={{ maxWidth: `${width}ch` }} className="item">
-      <CellComponent
-        columnId={id}
-        rowId={rowId}
-        cellData={cellData}
-        handleCellChange={handleCellChange}
-      />
+      <CellComponent cellData={cellData} handleInputChange={handleChange} />
     </td>
   );
 };

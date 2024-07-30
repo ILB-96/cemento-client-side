@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 import { Icons } from "./icons";
+import useClickOutside from "../hooks/use-click-outside";
 
 interface DropdownProps {
   fields: any[];
@@ -21,20 +22,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuRef]);
+  useClickOutside(menuRef, () => setIsDropdownOpen(false));
 
   return (
     <div

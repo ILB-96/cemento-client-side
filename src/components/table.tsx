@@ -9,11 +9,11 @@ interface TableProps {
   tableData: TableType;
 }
 const Table: React.FC<TableProps> = ({ tableData }) => {
-  const [table, setTable] = useState<TableType>({
+  const [table, setTable] = useState<TableType>(() => ({
     columns: [...tableData.columns.sort((a, b) => a.ordinalNo - b.ordinalNo)],
     data: [...tableData.data],
-  });
-  const [visibleColumns, setVisibleColumns] = useState<string[]>(
+  }));
+  const [visibleColumns, setVisibleColumns] = useState<string[]>(() =>
     tableData.columns.map((column) => column.id)
   );
   const [newColumnFormVisible, setNewColumnFormVisible] = useState(false);
@@ -26,7 +26,7 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
     });
 
     setTable((prevTable) => ({
-      columns: [...prevTable.columns],
+      columns: prevTable.columns,
       data: [...prevTable.data, newRow],
     }));
   };
@@ -71,7 +71,7 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
       columns: [...prevTable.columns, newColumn],
       data: prevTable.data.map((row) => {
         row[newColumn.id] = "";
-        return row;
+        return { ...row };
       }),
     }));
     setVisibleColumns((prev) => [...prev, newColumn.id]);

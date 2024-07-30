@@ -11,7 +11,7 @@ interface RowProps {
 
 const Row: React.FC<RowProps> = ({ rowData, columns, handleCellChange }) => {
   return (
-    <tr key={rowData.id}>
+    <tr>
       {columns.map((column) => (
         <Cell
           key={column.id + rowData.id}
