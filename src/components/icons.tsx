@@ -1,6 +1,36 @@
 import React from "react";
 
 export const Icons = {
+  Exit: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+      height="2em"
+      width="2em"
+      {...props}
+    >
+      <path d="M18 6L6 18M6 6l12 12" />
+    </svg>
+  ),
+  Menu: (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      viewBox="0 0 24 24"
+      height="2em"
+      width="2em"
+      {...props}
+    >
+      <path d="M4 12h16M4 6h16M4 18h16" />
+    </svg>
+  ),
   Filter: (props: React.SVGProps<SVGSVGElement>) => (
     <svg
       fill="none"

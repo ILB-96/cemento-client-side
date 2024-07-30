@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
+
 import Table from "./components/table";
 import { tableData } from "./config";
 import "./styles/index.css";
+
 const MainContainer = styled.main`
   display: flex;
   margin: 4rem;

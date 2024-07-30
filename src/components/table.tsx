@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { TableType, RowType, ColumnType } from "../../types/table";
 import { v4 as uuidv4 } from "uuid";
+
+import { TableType, RowType, ColumnType } from "../../types/table";
 import Row from "./row";
-import Dropdown from "./dropdown";
 import NewColumnForm from "./new-column-form";
-import { Icons } from "./icons";
-import ExportButtons from "./export-buttons";
+import TableMenu from "./table-menu/table-menu";
 interface TableProps {
   tableData: TableType;
 }
@@ -77,6 +76,9 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
     }));
     setVisibleColumns((prev) => [...prev, newColumn.id]);
   };
+  const handleFormVisible = () => {
+    setNewColumnFormVisible((prev) => !prev);
+  };
 
   return (
     <section id="data-table">
@@ -88,30 +90,14 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
         />
       )}
 
-      <div className="table-buttons__group">
-        <div className="space-x__sm">
-          <button
-            disabled={visibleColumns.length === 0}
-            className="table-add__button"
-            onClick={handleAddNewRow}
-          >
-            Add Row <Icons.ArrowDown />
-          </button>
-          <button
-            className="table-add__button"
-            onClick={() => setNewColumnFormVisible((prev) => !prev)}
-          >
-            Add Column <Icons.ArrowRight />
-          </button>
-          <Dropdown
-            fields={table.columns}
-            visibleFields={visibleColumns}
-            handleFieldToggle={handleColumnToggle}
-            dropDownTitle="Columns"
-          />
-        </div>
-        <ExportButtons tableData={table} />
-      </div>
+      <TableMenu
+        tableData={table}
+        visibleColumns={visibleColumns}
+        handleAddNewRow={handleAddNewRow}
+        handleColumnToggle={handleColumnToggle}
+        handleFormVisible={handleFormVisible}
+      />
+
       <table className="grid__table">
         <thead>
           <tr>

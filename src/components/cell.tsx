@@ -1,6 +1,7 @@
 import React from "react";
+
 import { ColumnType } from "../../types/table";
-import cellType from "./cell-type";
+import cellTypes from "./cell-types";
 interface CellProps {
   rowId: string;
   cellData?: any;
@@ -14,7 +15,7 @@ const Cell: React.FC<CellProps> = ({
   handleCellChange,
 }) => {
   const { id, type, width } = column;
-  const CellComponent = cellType[type] || cellType.string;
+  const CellComponent = cellTypes[type] || cellTypes.string;
   return (
     <td style={{ maxWidth: `${width}ch` }} className="item">
       <CellComponent

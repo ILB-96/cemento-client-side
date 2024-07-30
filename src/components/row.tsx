@@ -1,4 +1,5 @@
 import React from "react";
+
 import { RowType, ColumnType } from "../../types/table";
 import Cell from "./cell";
 

@@ -11,11 +11,11 @@ interface CellTypeProps {
   cellData?: any;
   handleCellChange: (rowId: string, columnId: string, value: any) => void;
 }
-export type CellType = {
+type CellType = {
   [key: string]: React.FC<CellTypeProps>;
 };
 
-const cellType: CellType = {
+const cellTypes: CellType = {
   string: ({ columnId, rowId, cellData, handleCellChange }: CellTypeProps) => (
     <FullContainer
       type="text"
@@ -124,4 +124,4 @@ const cellType: CellType = {
   },
 };
 
-export default cellType;
+export default cellTypes;

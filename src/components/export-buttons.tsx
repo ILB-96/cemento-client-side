@@ -1,4 +1,5 @@
 import React from "react";
+
 import { TableType } from "../../types/table";
 import { Icons } from "./icons";
 
@@ -44,7 +45,7 @@ const ExportButtons: React.FC<ExportButtonsProps> = ({ tableData }) => {
   };
 
   return (
-    <div className="space-x__sm">
+    <div className="space-x__sm max-lg:space-y-5">
       <button className="table-export__button" onClick={handleJSONExport}>
         Export JSON <Icons.JSON />
       </button>

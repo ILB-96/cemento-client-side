@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
+
 import { Icons } from "./icons";
 
 interface DropdownProps {
@@ -19,9 +20,27 @@ const Dropdown: React.FC<DropdownProps> = ({
   size = "1.3rem",
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef]);
 
   return (
-    <div className={`dropdown ${className}`}>
+    <div
+      className={`dropdown max-lg:mt-5 max-md:mt-0 ${className}`}
+      ref={menuRef}
+    >
       <button
         className="dropbtn"
         onClick={() => setIsDropdownOpen((prev) => !prev)}

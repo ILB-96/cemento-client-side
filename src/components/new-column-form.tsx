@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
+
 import { ColumnType } from "../../types/table";
-import { dataTypes } from "../config";
 import {
   ErrorMsg,
   FormGroup,
@@ -14,6 +14,7 @@ import {
   SubmitButton,
   CloseButton,
 } from "../styles/style";
+import cellTypes from "./cell-types";
 
 type NewColumnFormProps = {
   onClose: () => void;
@@ -64,8 +65,8 @@ const NewColumnForm: React.FC<NewColumnFormProps> = ({
           <FormGroup>
             <FormLabel>Column Type:</FormLabel>
             <FormSelect ref={typeRef}>
-              {dataTypes.map((type) => (
-                <option key={type} value={type.toLocaleLowerCase()}>
+              {Object.keys(cellTypes).map((type) => (
+                <option key={type} value={type.toLowerCase()}>
                   {type}
                 </option>
               ))}

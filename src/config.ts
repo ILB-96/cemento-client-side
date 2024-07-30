@@ -1,28 +1,27 @@
-import { TableType } from "../types/table";
-
-// will be used for the dropdown in the new column form.
-// for more options, see cell-types.tsx
-export const dataTypes = [
-  "String",
-  "Boolean",
-  "Number",
-  "Time",
-  "Week",
-  "Range",
-  "Month",
-  "File",
-  "Datetime",
-  "Date",
-  "Color",
-] as const;
-
-// this is the default data for the table.
-export const tableData: TableType = {
+export const tableData = {
   columns: [
-    { id: "name", ordinalNo: 1, title: "Name", type: "string", width: 15 },
-    { id: "age", ordinalNo: 2, title: "Age", type: "number", width: 5 },
+    {
+      id: "name",
+      ordinalNo: 1,
+      title: "Name",
+      type: "string",
+      width: 15,
+    },
+    {
+      id: "age",
+      ordinalNo: 2,
+      title: "Age",
+      type: "number",
+      width: 5,
+    },
     // add columns:
-    { id: "city", ordinalNo: 3, title: "City", type: "string", width: 10 },
+    {
+      id: "city",
+      ordinalNo: 3,
+      title: "City",
+      type: "string",
+      width: 10,
+    },
     {
       id: "country",
       ordinalNo: 4,
