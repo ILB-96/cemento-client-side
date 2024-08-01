@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 
 import { Icons } from "./icons";
 import useClickOutside from "../hooks/use-click-outside";
