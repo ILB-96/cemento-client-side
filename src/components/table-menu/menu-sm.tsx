@@ -65,9 +65,3 @@ const MenuSM: React.FC<TableMenuProps> = ({
 };
 
 export default MenuSM;
-function UseClickOutside(
-  menuRef: React.RefObject<HTMLDivElement>,
-  handleClickOutside: () => void
-) {
-  throw new Error("Function not implemented.");
-}

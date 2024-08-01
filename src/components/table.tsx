@@ -52,7 +52,7 @@ const Table: React.FC<TableProps> = ({ tableData }) => {
         return row;
       });
       return {
-        columns: [...prevTable.columns],
+        columns: prevTable.columns,
         data: updatedData,
       };
     });
