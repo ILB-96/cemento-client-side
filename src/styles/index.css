@@ -17,7 +17,13 @@
   --primary-foreground: #fefbff;
   
   --secondary: #5a5d72;
-  --secondary-foreground: #fff;
+  --secondary-foreground: #fefbff;
+
+  --success: #4caf50;
+  --success-foreground: #fefbff;
+
+  --destructive: #f44336;
+  --destructive-foreground: #fefbff;
   
   --muted: 0, 0, 0, 0.015;
   --muted-foreground: 22, 6%, 25%;

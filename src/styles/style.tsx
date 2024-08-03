@@ -6,7 +6,7 @@ export const PopupContainer = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(var(--shadow-mid));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,7 +17,7 @@ export const PopupContent = styled.div`
   background: #fbf8fd;
   padding: 4rem;
   border-radius: 0.25rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(var(--muted));
   width: 400px;
   max-width: 90%;
 `;
@@ -30,8 +30,8 @@ export const PopupTitle = styled.h3`
 `;
 
 export const ErrorMsg = styled.h4`
-  background-color: #ba1a1a;
-  color: #fff;
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
   font-weight: 600;
   padding: 0rem 0.25rem;
   border-radius: 0.25rem;
@@ -54,7 +54,7 @@ export const FormInput = styled.input`
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: 20 5.9% 90%;
-  border: 1px solid #767680;
+  border: 1px solid var(--border);
   border-radius: 0.25rem;
 `;
 
@@ -63,7 +63,7 @@ export const FormSelect = styled.select`
   padding: 0.5rem;
   box-sizing: border-box;
   background-color: 20 5.9% 90%;
-  border: 1px solid #767680;
+  border: 1px solid var(--border);
   border-radius: 0.25rem;
 `;
 
@@ -79,13 +79,27 @@ const ActionButton = styled.button`
   border-radius: 0.25rem;
   cursor: pointer;
   font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 export const SubmitButton = styled(ActionButton)`
-  background-color: #4caf50;
-  color: white;
+  background-color: var(--success);
+  color: var(--success-foreground);
+  outline: 1px solid var(--success);
+
+  &:hover {
+    background-color: var(--success-foreground);
+    color: var(--success);
+  }
 `;
+
 export const CloseButton = styled(ActionButton)`
-  background-color: #f44336;
-  color: white;
+  background-color: var(--destructive);
+  color: var(--destructive-foreground);
+  outline: 1px solid var(--destructive);
+
+  &:hover {
+    background-color: var(--destructive-foreground);
+    color: var(--destructive);
+  }
 `;
